@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Guest Wi-Fi — Terms of Service</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="portal.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Welcome to Guest Wi-Fi</h1>
+    <p>No account or password is required. Please read and accept the terms before connecting.</p>
+    <section aria-labelledby="terms-title">
+      <h2 id="terms-title">Terms of Service</h2>
+      <p>This guest network is provided on an “as available” basis without a guarantee of availability, speed, or security.</p>
+      <p>Use the network lawfully and respect other users. Do not distribute malicious software, infringe others’ rights, or attempt unauthorized access to systems.</p>
+      <p>You are responsible for your activity and for protecting your device and personal information. Use encrypted connections when transmitting sensitive information.</p>
+      <p>Access may be limited or withdrawn for misuse or operational reasons.</p>
+    </section>
+    <p id="status" role="status" aria-live="polite">Checking your connection request…</p>
+    <noscript><p>JavaScript is required to connect. Enable it and reopen the network’s sign-in page.</p></noscript>
+    <form id="accept-form" method="post" hidden>
+      <input type="hidden" name="magic" id="magic">
+      <input type="hidden" name="4Tredir" id="redirect">
+      <input type="hidden" name="answer" value="1">
+      <label><input type="checkbox" id="agree" required> I have read and accept the Terms of Service.</label>
+      <div class="actions">
+        <button type="submit" id="connect" disabled>Accept and connect</button>
+        <button type="button" id="decline">Decline</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

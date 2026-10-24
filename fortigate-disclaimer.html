@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Guest Wi-Fi</title>
+</head>
+<body>
+  <p>Continue to the guest network’s Terms of Service.</p>
+  <!-- Install on FortiGate, not on the webspace. Keep your original disclaimer form's action. -->
+  <form id="gateway" action="/" hidden>
+    <input name="magic" value="%%MAGICVAL%%">
+    <input name="4Tredir" value="%%PROTURI%%">
+  </form>
+  <!-- Replace this example URL with your static portal's HTTPS URL. -->
+  <form id="portal" action="https://portal.example.com/index.html" method="get">
+    <input type="hidden" name="post" id="post">
+    <input type="hidden" name="magic" id="magic">
+    <input type="hidden" name="4Tredir" id="redirect">
+    <button id="continue" type="submit" disabled>Read terms</button>
+  </form>
+  <noscript><p>Enable JavaScript to continue.</p></noscript>
+  <script>
+    const gateway = document.getElementById("gateway");
+    document.getElementById("post").value = gateway.action;
+    document.getElementById("magic").value = gateway.elements.namedItem("magic").value;
+    document.getElementById("redirect").value = gateway.elements.namedItem("4Tredir").value;
+    document.getElementById("continue").disabled = false;
+  </script>
+</body>
+</html>
