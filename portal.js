@@ -32,9 +32,9 @@
     document.getElementById("magic").value = magic;
     document.getElementById("redirect").value = params.get("4Tredir") || "";
     form.hidden = false;
-    status.textContent = "Accept the terms to request Internet access.";
+    status.textContent = "Akzeptieren Sie die Bedingungen, um den Internetzugang anzufordern.";
   } catch {
-    status.textContent = "This connection request is missing or invalid. Reopen your network’s sign-in page. If the problem persists, contact the network administrator.";
+    status.textContent = "Die Verbindungsanfrage fehlt oder ist ungültig. Öffnen Sie die Anmeldeseite des Netzwerks erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an die Netzwerkadministration.";
     return;
   }
 
@@ -50,13 +50,13 @@
     submitting = true;
     connect.disabled = true;
     document.getElementById("decline").disabled = true;
-    status.textContent = "Requesting access from the gateway…";
+    status.textContent = "Der Zugang wird beim Netzwerk angefragt …";
   });
 
   document.getElementById("decline").addEventListener("click", () => {
     form.hidden = true;
     agree.checked = false;
     connect.disabled = true;
-    status.textContent = "You declined the terms. No access request was sent. You may close this page.";
+    status.textContent = "Sie haben die Bedingungen abgelehnt. Es wurde kein Zugang angefragt. Sie können diese Seite jetzt schließen.";
   });
 })();

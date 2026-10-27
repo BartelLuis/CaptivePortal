@@ -1,19 +1,272 @@
 :root {
-  font-family: system-ui, sans-serif;
-  color: #182538;
-  background: #f0f3f7;
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #172a3a;
+  background: #f4f7f8;
   line-height: 1.6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --ink: #172a3a;
+  --muted: #5d6e7c;
+  --green: #14866d;
+  --green-dark: #096b57;
 }
 
-body { margin: 0; padding: 1rem; }
-main { max-width: 42rem; margin: 2rem auto; padding: 1.5rem; background: white; border-radius: .75rem; }
-h1, h2 { line-height: 1.25; }
-section { border: 1px solid #c5ceda; border-radius: .4rem; padding: 1rem; margin: 1.5rem 0; }
-section h2 { margin-top: 0; }
-label { display: block; }
-input[type="checkbox"] { width: 1.2rem; height: 1.2rem; vertical-align: middle; }
-.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
-button { padding: .8rem 1.2rem; font: inherit; border: 1px solid #475569; border-radius: .4rem; cursor: pointer; }
-button[type="submit"] { color: white; background: #164b97; }
-button:disabled { opacity: .55; cursor: not-allowed; }
-:focus-visible { outline: 3px solid #ae5800; outline-offset: 3px; }
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 1.25rem 1.5rem;
+  background:
+    radial-gradient(ellipse at 86% 5%, rgb(183 227 215 / 48%), transparent 29rem),
+    radial-gradient(ellipse at 0% 40%, rgb(220 232 237 / 68%), transparent 26rem),
+    #f4f7f8;
+}
+
+.page {
+  width: min(100%, 48rem);
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 4.25rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: var(--ink);
+  font-size: 1.4rem;
+  font-weight: 750;
+  letter-spacing: -.055em;
+  text-decoration: none;
+}
+
+.brand-mark svg {
+  width: 2.2rem;
+  height: 2.2rem;
+  color: var(--green);
+}
+
+.brand-caption {
+  padding-left: .75rem;
+  border-left: 1px solid #cbd6da;
+  color: var(--muted);
+  font-size: .79rem;
+  font-weight: 600;
+  letter-spacing: .025em;
+}
+
+.welcome {
+  max-width: 39rem;
+  margin: 0 0 2.25rem .25rem;
+}
+
+.eyebrow {
+  margin: 0 0 .55rem;
+  color: var(--green-dark);
+  font-size: .75rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.welcome .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.signal {
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  background: #35a987;
+  box-shadow: 0 0 0 .25rem rgb(53 169 135 / 14%);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.35rem, 7vw, 4rem);
+  font-weight: 650;
+  letter-spacing: -.065em;
+  line-height: 1.08;
+}
+
+h1 span { color: #647783; }
+
+.intro {
+  max-width: 34rem;
+  margin: 1.2rem 0 0;
+  color: #536775;
+  font-size: 1.07rem;
+  line-height: 1.7;
+}
+
+.terms-card {
+  padding: clamp(1.35rem, 5vw, 2.5rem);
+  border: 1px solid rgb(217 226 229 / 90%);
+  border-radius: 1.1rem;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 1.5rem 4rem rgb(33 58 71 / 9%), 0 .2rem .7rem rgb(33 58 71 / 4%);
+}
+
+.card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.card-heading .eyebrow { margin-bottom: .35rem; }
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 5vw, 1.8rem);
+  font-weight: 680;
+  letter-spacing: -.04em;
+  line-height: 1.25;
+}
+
+.card-icon {
+  display: grid;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: .9rem;
+  background: #e8f4f0;
+  color: var(--green-dark);
+}
+
+.card-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.terms-copy {
+  padding: .2rem 0 .25rem;
+  border-top: 1px solid #e8edef;
+  color: #425765;
+  font-size: .93rem;
+}
+
+.terms-copy p { margin: 1rem 0; }
+.terms-copy p:last-child { margin-bottom: .85rem; }
+
+.status,
+.notice {
+  margin: 1.1rem 0;
+  padding: .8rem 1rem;
+  border-radius: .65rem;
+  background: #f1f6f7;
+  color: #425765;
+  font-size: .9rem;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  color: var(--ink);
+  font-size: .92rem;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.consent input {
+  flex: 0 0 auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: .2rem 0 0;
+  accent-color: var(--green);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.25rem;
+}
+
+button {
+  min-height: 3rem;
+  padding: .75rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: .65rem;
+  font: inherit;
+  font-size: .93rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  background: var(--green);
+  color: white;
+}
+
+button[type="submit"]:not(:disabled):hover {
+  transform: translateY(-1px);
+  background: var(--green-dark);
+}
+
+button[type="submit"]:disabled {
+  background: #9abbb1;
+  cursor: not-allowed;
+}
+
+button[type="button"] {
+  border-color: #d3dddf;
+  background: white;
+  color: #425765;
+}
+
+button[type="button"]:hover:not(:disabled) {
+  border-color: #aab9bd;
+  background: #f7f9fa;
+}
+
+button:disabled { opacity: .8; }
+:focus-visible { outline: 3px solid #d39235; outline-offset: 3px; }
+
+footer {
+  padding: 1.6rem .25rem 0;
+  color: #71818b;
+  font-size: .82rem;
+  text-align: center;
+}
+
+footer strong { color: #536775; }
+
+@media (max-width: 540px) {
+  body { padding: 1.25rem 1rem; }
+  .brand { margin-bottom: 3.25rem; }
+  .welcome { margin-bottom: 1.6rem; }
+  .intro { font-size: 1rem; }
+  .card-heading { align-items: flex-start; }
+  .actions { flex-direction: column; }
+  .actions button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

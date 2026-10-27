@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>Guest Wi-Fi</title>
+  <title>Gast-WLAN</title>
 </head>
 <body>
-  <p>Continue to the guest network’s Terms of Service.</p>
+  <p>Weiter zu den Nutzungsbedingungen des Gast-WLANs.</p>
   <!-- Install on FortiGate, not on the webspace. Keep your original disclaimer form's action. -->
   <form id="gateway" action="/" hidden>
     <input name="magic" value="%%MAGICVAL%%">
@@ -18,9 +18,9 @@
     <input type="hidden" name="post" id="post">
     <input type="hidden" name="magic" id="magic">
     <input type="hidden" name="4Tredir" id="redirect">
-    <button id="continue" type="submit" disabled>Read terms</button>
+    <button id="continue" type="submit" disabled>Nutzungsbedingungen lesen</button>
   </form>
-  <noscript><p>Enable JavaScript to continue.</p></noscript>
+  <noscript><p>Zum Fortfahren muss JavaScript aktiviert sein.</p></noscript>
   <script>
     const gateway = document.getElementById("gateway");
     document.getElementById("post").value = gateway.action;

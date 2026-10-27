@@ -1,37 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>Guest Wi-Fi — Terms of Service</title>
+  <meta name="theme-color" content="#f4f7f8">
+  <meta name="description" content="Nutzungsbedingungen für das Gast-WLAN des IT-Zweckverbands kommunit.">
+  <title>Gast-WLAN — Nutzungsbedingungen</title>
   <link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script>
   <script src="portal.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>Welcome to Guest Wi-Fi</h1>
-    <p>No account or password is required. Please read and accept the terms before connecting.</p>
-    <section aria-labelledby="terms-title">
-      <h2 id="terms-title">Terms of Service</h2>
-      <p>This guest network is provided on an “as available” basis without a guarantee of availability, speed, or security.</p>
-      <p>Use the network lawfully and respect other users. Do not distribute malicious software, infringe others’ rights, or attempt unauthorized access to systems.</p>
-      <p>You are responsible for your activity and for protecting your device and personal information. Use encrypted connections when transmitting sensitive information.</p>
-      <p>Access may be limited or withdrawn for misuse or operational reasons.</p>
+  <main class="page">
+    <header class="brand" aria-label="IT-Zweckverband kommunit">
+      <a class="brand-mark" href="#" aria-label="kommunit">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 3 37 12.5v15L20 37 3 27.5v-15L20 3Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="m12 20 5 5 11-12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>kommunit</span>
+      </a>
+      <span class="brand-caption">IT-Zweckverband</span>
+    </header>
+
+    <section class="welcome" aria-labelledby="welcome-title">
+      <p class="eyebrow"><span class="signal" aria-hidden="true"></span> Gast-WLAN</p>
+      <h1 id="welcome-title">Willkommen.<br><span>Schön, dass Sie da sind.</span></h1>
+      <p class="intro">Verbinden Sie sich einfach und sicher mit unserem Gastnetzwerk. Ein Benutzerkonto oder Passwort ist nicht erforderlich.</p>
     </section>
-    <p id="status" role="status" aria-live="polite">Checking your connection request…</p>
-    <noscript><p>JavaScript is required to connect. Enable it and reopen the network’s sign-in page.</p></noscript>
-    <form id="accept-form" method="post" hidden>
-      <input type="hidden" name="magic" id="magic">
-      <input type="hidden" name="4Tredir" id="redirect">
-      <input type="hidden" name="answer" value="1">
-      <label><input type="checkbox" id="agree" required> I have read and accept the Terms of Service.</label>
-      <div class="actions">
-        <button type="submit" id="connect" disabled>Accept and connect</button>
-        <button type="button" id="decline">Decline</button>
+
+    <section class="terms-card" aria-labelledby="terms-title">
+      <div class="card-heading">
+        <div>
+          <p class="eyebrow">Kurz gelesen, direkt verbunden</p>
+          <h2 id="terms-title">Nutzungsbedingungen</h2>
+        </div>
+        <span class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M7 3.75h7l4 4v12.5H7a2 2 0 0 1-2-2v-12.5a2 2 0 0 1 2-2Z"/>
+            <path d="M14 4v4h4M8.5 13h7M8.5 16.5h7"/>
+          </svg>
+        </span>
       </div>
-    </form>
+      <div class="terms-copy">
+        <p>Das Gast-WLAN wird nach Verfügbarkeit bereitgestellt. Eine Gewähr für ständige Erreichbarkeit, eine bestimmte Geschwindigkeit oder Sicherheit besteht nicht.</p>
+        <p>Nutzen Sie das Netzwerk ausschließlich im Rahmen der geltenden Gesetze und nehmen Sie Rücksicht auf andere. Verbreiten Sie keine Schadsoftware, verletzen Sie keine Rechte Dritter und versuchen Sie nicht, unbefugt auf Systeme zuzugreifen.</p>
+        <p>Sie sind für Ihre Aktivitäten sowie den Schutz Ihres Geräts und Ihrer persönlichen Daten selbst verantwortlich. Übertragen Sie vertrauliche Informationen nur über verschlüsselte Verbindungen.</p>
+        <p>Bei missbräuchlicher Nutzung oder aus betrieblichen Gründen kann der Zugang eingeschränkt oder beendet werden.</p>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite">Ihre Verbindungsanfrage wird geprüft …</p>
+      <noscript><p class="notice">Zum Verbinden muss JavaScript aktiviert sein. Öffnen Sie anschließend die Anmeldeseite des Netzwerks erneut.</p></noscript>
+      <form id="accept-form" method="post" hidden>
+        <input type="hidden" name="magic" id="magic">
+        <input type="hidden" name="4Tredir" id="redirect">
+        <input type="hidden" name="answer" value="1">
+        <label class="consent"><input type="checkbox" id="agree" required> <span>Ich habe die Nutzungsbedingungen gelesen und akzeptiere sie.</span></label>
+        <div class="actions">
+          <button type="submit" id="connect" disabled>Akzeptieren und verbinden <span aria-hidden="true">→</span></button>
+          <button type="button" id="decline">Ablehnen</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>Bereitgestellt vom <strong>IT-Zweckverband kommunit</strong></footer>
   </main>
 </body>
 </html>
